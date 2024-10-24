@@ -1,0 +1,66 @@
+@use "../helpers/var" as *;
+
+/* start global roles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Press Start 2P", system-ui;
+    background-color: var(--bg-color);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+button {
+    outline: 0;
+    border: 0;
+    display: block;
+    cursor: pointer;
+}
+
+input {
+    outline: 0;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* end global roles */
+
+/* start helper classes */
+
+.hidden {
+    display: none !important;
+}
+
+span {
+    display: inline-block;
+}
+
+i {
+    display: block;
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+
+
+/* end helper classes */
