@@ -49,12 +49,14 @@ i {
   display: block;
 }
 
-.page {
-  position: relative;
-  z-index: 1;
+.cursor-pointer {
+  cursor: pointer;
 }
 
 /* end helper classes */
-h1 {
+/* Start Header */
+header .shop .nbr_shops {
   color: red;
+  width: 30px;
+  height: 30px;
 }/*# sourceMappingURL=main.css.map */
