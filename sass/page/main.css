@@ -54,9 +54,54 @@ i {
 }
 
 /* end helper classes */
+.content {
+  overflow: hidden;
+  height: 100vh;
+}
+
 /* Start Header */
-header .shop .nbr_shops {
-  color: red;
+header {
+  width: 100%;
+  height: 70px;
+}
+header .title {
+  letter-spacing: 5px;
+}
+header .title span.sub-title {
+  color: #fd7e14;
+}
+header .shop .shop_nbr {
   width: 30px;
   height: 30px;
+  top: -5px;
+  left: 26px;
+  background-color: #fd7e14;
+}
+header .choices-eles {
+  width: 30%;
+  min-height: calc(100vh - 70px);
+  top: 70px;
+  right: 0;
+  transform: translateX(100%);
+  transition: 0.3s;
+}
+@media (max-width: 767px) {
+  header .choices-eles {
+    width: 100%;
+  }
+}
+header .choices-eles.show-choices {
+  transform: translateX(0%);
+}
+header .choices-eles .cart {
+  background-color: rgb(233, 233, 233);
+}
+header .choices-eles .cart .image img {
+  width: 80px;
+}
+header .choices-eles .cart .range {
+  width: 40px;
+}
+header .choices-eles .cart .range i {
+  color: #fd7e14;
 }/*# sourceMappingURL=main.css.map */

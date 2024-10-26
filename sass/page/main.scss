@@ -4,21 +4,69 @@
 @use "../helpers/var" as *;
 
 
+.content {
+    overflow: hidden;
+    height: 100vh;
+}
+
 
 /* Start Header */
 header {
-    .navbar {
-       
-    }
+    width: 100%;
+    height: $header_height;
     .title {
-
+        letter-spacing: 5px;
+        span.sub-title {
+            color: $orange;
+        }
     }
     .shop {
-        .nbr_shops {
-            color: red;
+        .shop_nbr {
             width: 30px;
             height: 30px;
+            top: -5px;
+            left: 26px;
+            background-color: $orange;
         } 
+    }
+    .choices-eles {
+        width: 30%;
+        min-height: calc(100vh - $header_height);
+        top: $header_height;
+        right: 0;
+        transform: translateX(100%);
+        transition: $transition;
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+        &.show-choices {
+            transform: translateX(0%);
+        }
+        .cart {
+            background-color: rgb(233, 233, 233);
+            .image {
+                img {
+                    width: 80px;
+                }
+            }
+            .desc {
+                .name {
+
+                }
+                .price {
+
+                }
+                .remove {
+
+                }
+            }
+            .range {
+                width: 40px;
+                i {
+                    color: $orange;
+                }
+            }
+        }
     }
 }
 
