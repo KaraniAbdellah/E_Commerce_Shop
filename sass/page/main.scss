@@ -6,7 +6,7 @@
 
 .content {
     overflow: hidden;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 
@@ -36,6 +36,7 @@ header {
         right: 0;
         transform: translateX(100%);
         transition: $transition;
+        z-index: 1;
         @media (max-width: 767px) {
             width: 100%;
         }
@@ -69,6 +70,38 @@ header {
         }
     }
 }
+/* End Header */
 
+/* Start Our Product */
+.our_products {
+    .products {
+        .product {
+            position: relative;
+            overflow: hidden;
+            &:hover::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.318);
+            }
+            &:hover .badge {
+                transition: $transition;
+                transform: translateX(0%);
+            }
+            .badge {
+                right: 0;
+                top: 30%;
+                background-color: $orange !important;
+                transform: translateX(100%);
+            }
+            .price {
+                color: $orange;
+            }
+        }
+    }
+}
 
 
