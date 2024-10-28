@@ -59,6 +59,11 @@ add_cards.forEach(element => {
 carts.addEventListener("click", function(event) {
     if (event.target.classList.contains("remove")) {
         const remove_cart = event.target.parentElement.parentElement;
+
+        const price_ele = remove_cart.nextElementSibling.nextElementSibling.
+        firstElementChild.nextElementSibling.nextElementSibling.textContent;
+        totale_price.textContent = Number(totale_price.textContent) - price_ele;
+
         remove_cart.remove();
         shop_nbr.textContent = Number(shop_nbr.textContent) - 1;
     }
