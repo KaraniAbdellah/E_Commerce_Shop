@@ -4,23 +4,104 @@
 @use "../helpers/var" as *;
 
 
+.content {
+    overflow: hidden;
+    min-height: 100vh;
+}
+
 
 /* Start Header */
 header {
-    .navbar {
-       
-    }
+    width: 100%;
+    height: $header_height;
     .title {
-
+        letter-spacing: 5px;
+        span.sub-title {
+            color: $orange;
+        }
     }
     .shop {
-        .nbr_shops {
-            color: red;
+        .shop_nbr {
             width: 30px;
             height: 30px;
+            top: -5px;
+            left: 26px;
+            background-color: $orange;
         } 
     }
-}
+    .choices-eles {
+        width: 30%;
+        min-height: calc(100vh - $header_height);
+        top: $header_height;
+        right: 0;
+        transform: translateX(100%);
+        transition: $transition;
+        z-index: 1;
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+        &.show-choices {
+            transform: translateX(0%);
+        }
+        .cart {
+            background-color: rgb(233, 233, 233);
+            .image {
+                img {
+                    width: 80px;
+                }
+            }
+            .desc {
+                .name {
 
+                }
+                .price {
+
+                }
+                .remove {
+
+                }
+            }
+            .range {
+                width: 40px;
+                i {
+                    color: $orange;
+                }
+            }
+        }
+    }
+}
+/* End Header */
+
+/* Start Our Product */
+.our_products {
+    .products {
+        .product {
+            position: relative;
+            overflow: hidden;
+            &:hover::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.318);
+            }
+            &:hover .badge {
+                transition: $transition;
+                transform: translateX(0%);
+            }
+            .badge {
+                right: 0;
+                top: 30%;
+                background-color: $orange !important;
+                transform: translateX(100%);
+            }
+            .price {
+                color: $orange;
+            }
+        }
+    }
+}
 
 

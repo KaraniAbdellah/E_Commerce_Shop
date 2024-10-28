@@ -16,19 +16,126 @@
 </head>
 <body>
 
-    <div class="content">
-        <header class="p-3 bg-secondary d-flex justify-content-between align-items-center">
-            <div class="cursor-pointer navbar fs-4"> 
+     <div class="content">
+        <header class="position-relative pb-2 ps-4 pe-4 bg-secondary d-flex justify-content-between align-items-center">
+            <div class="cursor-pointer navbar fs-4">
                 <i class="text-white fa-solid fa-bars"></i>
             </div>
-            <h1 class="title text-white">ComfyHouse</h1>
+            <p class="title fw-bold fs-4 fs-sm-1 mb-0 text-white">Comfy<span class="sub-title">House</span></p>
             <button type="button" class="shop fs-4 btn btn-white position-relative">
                 <i class="text-white fa-solid fa-shop"></i>
-                <span class="shop_nbr text-dark position-absolute top-0 start-100 
-                translate-middle badge rounded-pill bg-white">0</span>
+                <span class="shop_nbr fw-bold text-white position-absolute rounded-circle fs-5 bg-orange">0</span>
             </button>
+            <div class="choices-eles text-center p-4 bg-light position-absolute">
+                <button class="cancel btn btn-dark d-flex justify-content-between align-items-center">
+                    <i class="cursor-pointer fs-4 fa-solid fa-xmark rounded"></i>
+                </button>
+                <p class="cart-title fs-3 fw-bold">Your Cart</p>
+                <div class="carts">
+                    <!-- Choices Eles Here -->
+                    
+                </div>
+                <p class="text-center fw-bold">Your Total: $<span class="total-price">0</span></p>
+                <button class="btn btn-dark cursor-pointer">CLEAR CART</button>
+            </div>
         </header>
+        <div class="our_products container p-5">
+            <div class="title fs-3 fw-bold text-center mb-5">Our Product</div>
+            <div class="products row gap-3 justify-content-center">
+                <div class="product card p-0 col-sm-12 col-md-3">
+                    <img src="images/product-1.jpeg" class="card-img-top" alt="...">
+                    <span class="badge p-2 bg-primary position-absolute cursor-pointer">
+                        <i class="fa-solid fa-shop pe-2"></i>
+                        Add to Cart
+                    </span>
+                    <div class="card-body">
+                      <p class="card-text mb-2 text-center fw-bold">Queen Panel Bed</p>
+                      <div class="price text-center fw-bold">$ <span class="product-price">80.90</span></div>
+                    </div>
+                </div>
+                <div class="product card p-0 col-sm-12 col-md-3">
+                    <img src="images/product-2.jpeg" class="card-img-top" alt="...">
+                    <span class="badge p-2 bg-primary position-absolute cursor-pointer">
+                        <i class="fa-solid fa-shop pe-2"></i>
+                        Add to Cart
+                    </span>
+                    <div class="card-body">
+                      <p class="card-text mb-2 text-center fw-bold">King Panel Bed</p>
+                      <div class="price text-center fw-bold">$ <span class="product-price">100.34</span></div>
+                    </div>
+                </div>
+                <div class="product card p-0 col-sm-12 col-md-3">
+                    <img src="images/product-3.jpeg" class="card-img-top" alt="...">
+                    <span class="badge p-2 bg-primary position-absolute cursor-pointer">
+                        <i class="fa-solid fa-shop pe-2"></i>
+                        Add to Cart
+                    </span>
+                    <div class="card-body">
+                      <p class="card-text mb-2 text-center fw-bold">Single Panel Bed</p>
+                      <div class="price text-center fw-bold">$ <span class="product-price">123.12</span></div>
+                    </div>
+                </div>
+                <div class="product card p-0 col-sm-12 col-md-3">
+                    <img src="images/product-4.jpeg" class="card-img-top" alt="...">
+                    <span class="badge p-2 bg-primary position-absolute cursor-pointer">
+                        <i class="fa-solid fa-shop pe-2"></i>
+                        Add to Cart
+                    </span>
+                    <div class="card-body">
+                      <p class="card-text mb-2 text-center fw-bold">Queen Panel Bed</p>
+                      <div class="price text-center fw-bold">$ <span class="product-price">80.90</span></div>
+                    </div>
+                </div>
+                <div class="product card p-0 col-sm-12 col-md-3">
+                    <img src="images/product-5.jpeg" class="card-img-top" alt="...">
+                    <span class="badge p-2 bg-primary position-absolute cursor-pointer">
+                        <i class="fa-solid fa-shop pe-2"></i>
+                        Add to Cart
+                    </span>
+                    <div class="card-body">
+                      <p class="card-text mb-2 text-center fw-bold">King Panel Bed</p>
+                      <div class="price text-center fw-bold">$ <span class="product-price">100.34</span></div>
+                    </div>
+                </div>
+                <div class="product card p-0 col-sm-12 col-md-3">
+                    <img src="images/product-6.jpeg" class="card-img-top" alt="...">
+                    <span class="badge p-2 bg-primary position-absolute cursor-pointer">
+                        <i class="fa-solid fa-shop pe-2"></i>
+                        Add to Cart
+                    </span>
+                    <div class="card-body">
+                      <p class="card-text mb-2 text-center fw-bold">Single Panel Bed</p>
+                      <div class="price text-center fw-bold">$ <span class="product-price">123.12</span></div>
+                    </div>
+                </div>
+                <div class="product card p-0 col-sm-12 col-md-3">
+                    <img src="images/product-7.jpeg" class="card-img-top" alt="...">
+                    <span class="badge p-2 bg-primary position-absolute cursor-pointer">
+                        <i class="fa-solid fa-shop pe-2"></i>
+                        Add to Cart
+                    </span>
+                    <div class="card-body">
+                      <p class="card-text mb-2 text-center fw-bold">Single Panel Bed</p>
+                      <div class="price text-center fw-bold">$ <span class="product-price">123.12</span></div>
+                    </div>
+                </div>
+                <div class="product card p-0 col-sm-12 col-md-3">
+                    <img src="images/product-8.jpeg" class="card-img-top" alt="...">
+                    <span class="badge p-2 bg-primary position-absolute cursor-pointer">
+                        <i class="fa-solid fa-shop pe-2"></i>
+                        Add to Cart
+                    </span>
+                    <div class="card-body">
+                      <p class="card-text mb-2 text-center fw-bold">Single Panel Bed</p>
+                      <div class="price text-center fw-bold">$ <span class="product-price">123.12</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Script File -->
+    <script src="main.js"></script>
 
     
 </body>
