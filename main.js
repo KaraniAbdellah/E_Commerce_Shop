@@ -51,7 +51,9 @@ add_cards.forEach(element => {
         </div>
         `;
         carts.appendChild(cart_ele);
+        // Here
         shop_nbr.textContent = Number(shop_nbr.textContent) + 1;
+        totale_price.textContent = Number(totale_price.textContent + price_ele);
     });
 });
 
@@ -60,8 +62,10 @@ carts.addEventListener("click", function(event) {
     if (event.target.classList.contains("remove")) {
         const remove_cart = event.target.parentElement.parentElement;
 
-        const price_ele = remove_cart.nextElementSibling.nextElementSibling.
-        firstElementChild.nextElementSibling.nextElementSibling.textContent;
+
+        const price_ele = event.target.parentElement.firstElementChild.nextElementSibling.
+        firstElementChild.textContent;
+
         totale_price.textContent = Number(totale_price.textContent) - price_ele;
 
         remove_cart.remove();
@@ -74,24 +78,27 @@ carts.addEventListener("click", function(event) {
     if (event.target.classList.contains("angle-down")) {
         const angle_down = event.target;
         angle_down.addEventListener("click", function() {
-            const number_eles = angle_down.parentElement.nextElementSibling.nextElementSibling; 
+            // const number_eles = angle_down.parentElement.nextElementSibling.nextElementSibling;
+            console.log(number_eles);
             if (number_eles.textContent <= 0) {
                 number_eles.textContent =  0;
             }
             else {
                 number_eles.textContent = Number(number_eles.textContent) - 1;
-                // totale_price.textContent = Number(totale_price.textContent) - Number(cart_price.textContent); 
+                totale_price.textContent = Number(totale_price.textContent) - Number(cart_price.textContent); 
             }
         });
     }
     if (event.target.classList.contains("angle-up")) {
         const angle_up = event.target;
-        const number_eles = angle_up.nextElementSibling;
-        console.log(angle_up); 
-        console.log(number_eles); 
+        const number_eles = angle_up.parentElement.firstElementChild.nextElementSibling;
+        const cart_price = angle_up.parentElement.parentElement.firstElementChild.
+        nextElementSibling.firstElementChild.nextElementSibling.firstElementChild
+        .textContent;
         angle_up.addEventListener("click", function() {
             number_eles.textContent = Number(number_eles.textContent) + 1;
-            // totale_price.textContent = Number(totale_price.textContent) + Number(cart_price.textContent); 
+            console.log(number_eles.textContent);
+            totale_price.textContent = Number(totale_price.textContent) + Number(cart_price); 
         });
     }
 });
