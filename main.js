@@ -25,6 +25,7 @@ const add_cards = document.querySelectorAll(".badge");
 const carts = document.querySelector(".carts");
 const shop_nbr = document.querySelector(".shop_nbr");
 const totale_price = document.querySelector("span.total-price");
+
 add_cards.forEach(element => {
     element.addEventListener("click", function() {
         const ele_name = element.nextElementSibling.firstElementChild.textContent;
@@ -53,7 +54,7 @@ add_cards.forEach(element => {
         carts.appendChild(cart_ele);
         // Here
         shop_nbr.textContent = Number(shop_nbr.textContent) + 1;
-        totale_price.textContent = Number(totale_price.textContent + price_ele);
+        totale_price.textContent = Number(totale_price.textContent) + Number(price_ele);
     });
 });
 
@@ -62,11 +63,11 @@ carts.addEventListener("click", function(event) {
     if (event.target.classList.contains("remove")) {
         const remove_cart = event.target.parentElement.parentElement;
 
-
         const price_ele = event.target.parentElement.firstElementChild.nextElementSibling.
         firstElementChild.textContent;
 
-        totale_price.textContent = Number(totale_price.textContent) - price_ele;
+        totale_price.textContent = Number(totale_price.textContent) - Number(price_ele);
+        if (totale_price.textContent < 0)  totale_price.textContent = 0;
 
         remove_cart.remove();
         shop_nbr.textContent = Number(shop_nbr.textContent) - 1;
@@ -77,34 +78,32 @@ carts.addEventListener("click", function(event) {
 carts.addEventListener("click", function(event) {
     if (event.target.classList.contains("angle-down")) {
         const angle_down = event.target;
-        angle_down.addEventListener("click", function() {
-            // const number_eles = angle_down.parentElement.nextElementSibling.nextElementSibling;
-            console.log(number_eles);
-            if (number_eles.textContent <= 0) {
-                number_eles.textContent =  0;
-            }
-            else {
-                number_eles.textContent = Number(number_eles.textContent) - 1;
-                totale_price.textContent = Number(totale_price.textContent) - Number(cart_price.textContent); 
-            }
-        });
+        const number_eles = angle_down.parentElement.firstElementChild.nextElementSibling;
+        const cart_price = angle_down.parentElement.parentElement.firstElementChild.nextElementSibling.
+        firstElementChild.nextElementSibling.firstElementChild;
+
+        if (number_eles.textContent <= 0) {
+            number_eles.textContent =  0;
+        }
+        else {
+            number_eles.textContent = Number(number_eles.textContent) - 1;
+            totale_price.textContent = Number(totale_price.textContent) - Number(cart_price.textContent); 
+            shop_nbr.textContent = Number(shop_nbr.textContent) - 1;
+        }
     }
     if (event.target.classList.contains("angle-up")) {
         const angle_up = event.target;
         const number_eles = angle_up.parentElement.firstElementChild.nextElementSibling;
         const cart_price = angle_up.parentElement.parentElement.firstElementChild.
-        nextElementSibling.firstElementChild.nextElementSibling.firstElementChild
-        .textContent;
-        angle_up.addEventListener("click", function() {
-            number_eles.textContent = Number(number_eles.textContent) + 1;
-            console.log(number_eles.textContent);
-            totale_price.textContent = Number(totale_price.textContent) + Number(cart_price); 
-        });
+        nextElementSibling.firstElementChild.nextElementSibling.firstElementChild;
+
+        number_eles.textContent = Number(number_eles.textContent) + 1;
+        totale_price.textContent = Number(totale_price.textContent) + Number(cart_price.textContent); 
+        shop_nbr.textContent = Number(shop_nbr.textContent) + 1;
     }
 });
 
 
 
 
-/// custom totale price in remove and also in increase and decrease
-
+// custom numbers & and if cart demand already exit
