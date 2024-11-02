@@ -61,6 +61,8 @@ carts.addEventListener("click", function (event) {
   if (event.target.classList.contains("remove")) {
     const remove_cart = event.target.parentElement.parentElement;
 
+    set_carts(event.target.parentElement.firstElementChild.textContent);
+
     const price_ele =
       event.target.parentElement.firstElementChild.nextElementSibling
         .firstElementChild.textContent;
@@ -71,12 +73,17 @@ carts.addEventListener("click", function (event) {
 
     remove_cart.remove();
     let new_shop_nbr = Number(shop_nbr.textContent) - 1;
-    shop_nbr.textContent = Number(shop_nbr.textContent) - 1;
     if (new_shop_nbr < 0) {
       shop_nbr.textContent = 0;
     } else {
       shop_nbr.textContent = Number(shop_nbr.textContent) - 1;
     }
+    
+    if (carts.innerHTML == "") {
+      totale_cart_price.textContent = 0;
+    }
+
+
   }
 });
 
@@ -114,3 +121,27 @@ carts.addEventListener("click", function (event) {
     shop_nbr.textContent = Number(shop_nbr.textContent) + 1;
   }
 });
+
+
+// Clear all Carts
+const clear_carts = document.querySelector(".clear_carts");
+clear_carts.addEventListener("click", function() {
+  carts.innerHTML = "";
+  shop_nbr.textContent = 0;
+  totale_cart_price.textContent = 0;
+});
+
+
+
+function set_carts(name) {
+  const all_cards = document.querySelectorAll(".card");
+  if (all_cards.length != 0) {
+    all_cards.forEach(element => {
+      let card_name = element.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent;
+      if (card_name == name) {
+        element.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent = "Add To Cart";
+      }
+    });
+  }
+}
+
