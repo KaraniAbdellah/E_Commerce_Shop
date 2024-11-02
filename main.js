@@ -29,22 +29,21 @@ add_cards.forEach((cart) => {
       // create & add cart cart
       const cart_ele = document.createElement("div");
       cart_ele.innerHTML = `
-            <div class="cart p-2 mb-2 d-flex justify-content-between align-items-center">
-                <div class="image pe-3">
-                    <img src="${cart_image}" alt="">
-                </div>
-                <div class="desc text-start w-100">
-                    <p class="name mb-0 fw-bold">${cart_name}</p>
-                    <p class="price mb-0 fw-bold">$<span class="price">${cart_price}</span></p>
-                    <p class="remove mb-0 text-danger cursor-pointer">remove</p>
-                </div>
-                <div class="range">
-                    <i class="fa-solid fa-angle-up angle-up cursor-pointer"></i>
-                    <div class="number-eles">1</div>
-                    <i class="fa-solid fa-angle-down angle-down  cursor-pointer"></i>
-                </div>
-            </div>
-            `;
+          <div class="image pe-3">
+              <img src="${cart_image}" alt="">
+          </div>
+          <div class="desc text-start w-100">
+              <p class="name mb-0 fw-bold">${cart_name}</p>
+              <p class="price mb-0 fw-bold">$<span class="price">${cart_price}</span></p>
+              <p class="remove mb-0 text-danger cursor-pointer">remove</p>
+          </div>
+          <div class="range">
+              <i class="fa-solid fa-angle-up angle-up cursor-pointer"></i>
+              <div class="number-eles">1</div>
+              <i class="fa-solid fa-angle-down angle-down  cursor-pointer"></i>
+          </div>
+          `;
+      cart_ele.classList.add("cart", "p-2", "mb-2", "d-flex", "justify-content-between", "align-items-center");
       carts.appendChild(cart_ele);
       // Custom Numver of things that you shop
       shop_nbr.textContent = Number(shop_nbr.textContent) + 1;
@@ -65,13 +64,14 @@ carts.addEventListener("click", function (event) {
 
     const price_ele =
       event.target.parentElement.firstElementChild.nextElementSibling
-        .firstElementChild.textContent;
+        .firstElementChild;
+    const nbr_chop_cart = event.target.parentElement.nextElementSibling.firstElementChild.nextElementSibling;
 
     totale_cart_price.textContent =
-      Number(totale_cart_price.textContent) - Number(price_ele);
+      Number(totale_cart_price.textContent) - Number(price_ele.textContent) * Number(nbr_chop_cart.textContent);
     if (totale_cart_price.textContent < 0) totale_cart_price.textContent = 0;
 
-    remove_cart.remove();
+    carts.removeChild(remove_cart);
     let new_shop_nbr = Number(shop_nbr.textContent) - 1;
     if (new_shop_nbr < 0) {
       shop_nbr.textContent = 0;
@@ -79,8 +79,9 @@ carts.addEventListener("click", function (event) {
       shop_nbr.textContent = Number(shop_nbr.textContent) - 1;
     }
     
-    if (carts.innerHTML == "") {
+    if (carts.firstElementChild == null) {
       totale_cart_price.textContent = 0;
+      shop_nbr.textContent = 0;
     }
 
 
@@ -124,17 +125,22 @@ carts.addEventListener("click", function (event) {
 
 
 // Clear all Carts
+const all_cards = document.querySelectorAll(".card");
 const clear_carts = document.querySelector(".clear_carts");
 clear_carts.addEventListener("click", function() {
   carts.innerHTML = "";
   shop_nbr.textContent = 0;
   totale_cart_price.textContent = 0;
+
+  if (all_cards.length != 0) {
+    all_cards.forEach(element => {
+      element.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent = "Add To Cart";
+    });
+  }
 });
 
 
-
 function set_carts(name) {
-  const all_cards = document.querySelectorAll(".card");
   if (all_cards.length != 0) {
     all_cards.forEach(element => {
       let card_name = element.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.textContent;
